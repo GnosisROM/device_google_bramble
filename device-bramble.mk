@@ -17,13 +17,9 @@
 PRODUCT_HARDWARE := bramble
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
-    ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
-        LOCAL_KERNEL := device/google/bramble-kernel/Image.lz4
-    else
-        LOCAL_KERNEL := device/google/bramble-kernel/vintf/Image.lz4
-    endif
+    LOCAL_KERNEL := device/google/bramble/kernel
 else
-    LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
+    LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL) 
 endif
 
 PRODUCT_VENDOR_KERNEL_HEADERS := device/google/bramble-kernel/sm7250/kernel-headers
@@ -37,7 +33,7 @@ LOCAL_PATH := device/google/bramble
 PRODUCT_SOONG_NAMESPACES += \
     device/google/bramble
 
-DEVICE_PACKAGE_OVERLAYS += device/google/bramble/bramble/overlay
+PRODUCT_PACKAGE_OVERLAYS += device/google/bramble/bramble/overlay
 
 # Audio XMLs for bramble
 
@@ -194,3 +190,6 @@ PRODUCT_PACKAGES += \
     SettingsOverlayG025I \
     SettingsOverlayG6QU3 \
     SettingsOverlayG025E
+
+# Keyboard bottom padding in dp for portrait mode
+PRODUCT_PRODUCT_PROPERTIES += ro.com.google.ime.kb_pad_port_b=10
