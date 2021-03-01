@@ -22,7 +22,7 @@ else
     LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL) 
 endif
 
-PRODUCT_VENDOR_KERNEL_HEADERS := device/google/bramble-kernel/sm7250/kernel-headers
+PRODUCT_VENDOR_KERNEL_HEADERS := device/google/redbull-kernel/sm7250/kernel-headers
 
 include build/make/target/product/iorap_large_memory_config.mk
 include device/google/redbull/device-common.mk
@@ -149,7 +149,6 @@ PRODUCT_PACKAGES += \
 # Thermal HAL config
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/thermal_info_config_$(PRODUCT_HARDWARE).json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config.json \
-    $(LOCAL_PATH)/thermal_info_config_$(PRODUCT_HARDWARE)_m.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config_m.json
 
 # Support to disable thermal protection at run time
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
