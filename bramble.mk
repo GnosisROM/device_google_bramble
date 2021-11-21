@@ -19,3 +19,9 @@ $(call inherit-product, device/google/bramble/aosp_bramble.mk)
 
 # Remove AOSP prefix from product name
 PRODUCT_NAME := bramble
+
+PRIVATE_BUILD_DESC := bramble-user 12 SP1A.211105.003 7757856 release-keys
+
+PRODUCT_BUILD_PROP_OVERRIDES +- \
+    PRIVATE_BUILD_DESC="bramble-user 12 SP1A.211105.003 7757856 release-keys" \
+    BUILD_ID=SP1A.211105.003 \
